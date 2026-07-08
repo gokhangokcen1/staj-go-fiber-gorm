@@ -18,4 +18,4 @@ go run main.go
 `curl -X PUT http://localhost:3000/api/ogrenci/1 -H "Content-Type: application/json" -d "{\"bolum\":\"Elektrik Elektronik Muh\"}"`
 
 ## Öğrenci sil 
-`curl -X DELETE http://localhost:3000/api/ogrenci/1`
+`curl -X DELETE http://localhost:3000/api/ogrenci/1`  

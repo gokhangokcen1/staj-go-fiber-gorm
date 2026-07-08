@@ -18,6 +18,7 @@ func CreateOgrenci(c fiber.Ctx) error {
 			"error": "Istek govdesi okunamadi",
 		})
 	}
+
 	if ogrenci.Ad == "" || ogrenci.Numara == "" {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "Ad ve Numara alanlari zorunludur",
@@ -132,7 +133,7 @@ func DeleteOgrenci(c fiber.Ctx) error {
 
 	// soft delete uygulanır ve DeletedAt alanı doldurulur
 	// veriler fiziksel olarak silinmez yalnızca deletedat kısmı boş olan veriler sorgularda gözükür
-	result := database.DB.Delete(&models.Ogrenci{}, id)
+	result := database.DB.Unscoped().Delete(&models.Ogrenci{}, id)
 	if result.Error != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"error": "Silme basarisiz",

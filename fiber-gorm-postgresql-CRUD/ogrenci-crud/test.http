@@ -3,24 +3,24 @@ POST http://localhost:3000/api/ogrenci
 Content-Type: application/json
 
 {
-  "ad": "Gökhan",
-  "soyad": "Gökcen",
-  "numara": "2028036",
-  "bolum": "Elektrik Elektronik Muh"
+  "ad": "Nur",
+  "soyad": "Karaarslan",
+  "numara": "2028042",
+  "bolum": "ell"
 }
 
 ### Tüm öğrencileri listele
 GET http://localhost:3000/api/ogrenci
 
 ### Tek öğrenci getir
-GET http://localhost:3000/api/ogrenci/4
+GET http://localhost:3000/api/ogrenci/5
 
 ### Öğrenci güncelle
-PUT http://localhost:3000/api/ogrenci/4
+PUT http://localhost:3000/api/ogrenci/5
 Content-Type: application/json
 
 {
-  "bolum": "Hukuk"
+  "soyad": "Güler"
 }
 
 ### Öğrenci sil
