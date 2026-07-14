@@ -12,6 +12,7 @@ const router = useRouter()
       <button @click="router.push('/portchecker')">Port Checker</button>
       <button @click="router.push('/ipscanner')">IP Scanner</button>
       <button @click="router.push('/sslcheck')">SSL Checker</button>
+      <button @click="router.push('/wirehamsi')">wirehamsi</button>
     </div>
   </div>
 </template>

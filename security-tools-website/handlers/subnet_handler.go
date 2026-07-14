@@ -29,6 +29,11 @@ func HesaplaSubnet(c fiber.Ctx) error {
 			"error": "CIDR 0 ile 32 arasinda olmalidir",
 		})
 	}
+	if parsedIP := net.ParseIP(req.IP); parsedIP == nil || parsedIP.To4() == nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"error": "Gecersiz IPv4 adresi",
+		})
+	}
 
 	ipBolunmus := strings.Split(req.IP, ".")
 	if len(ipBolunmus) != 4 {

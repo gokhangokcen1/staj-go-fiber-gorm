@@ -39,7 +39,7 @@ function toplamIP() { return Math.pow(2, 32 - Number(cidr.value)) - 2 }
     <form @submit.prevent="tara">
       <input v-model="ip" placeholder="Örnek: 192.168.30.110" />
       <input v-model="cidr" type="number" min="1" max="30" placeholder="CIDR (ornek: 24)" />
-      <button type="submit" :disabled="taraniyor" @click="yalakaModu = false">
+      <button type="submit" :disabled="taraniyor">
         {{ taraniyor ? 'Taraniyor...' : 'Tara' }}
       </button>
 

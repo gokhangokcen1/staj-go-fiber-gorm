@@ -2,7 +2,6 @@ package oui
 
 import (
 	"encoding/csv"
-	"fmt"
 	"os"
 	"strings"
 )
@@ -10,7 +9,7 @@ import (
 var OuiHaritasi = make(map[string]string)
 
 func Yukle(dosyaYolu string) error {
-	fmt.Println("YUKLE ÇALIŞTI")
+	// fmt.Println("YUKLE ÇALIŞTI")
 	dosya, err := os.Open(dosyaYolu)
 	if err != nil {
 		return err
@@ -24,11 +23,11 @@ func Yukle(dosyaYolu string) error {
 	okuyucu.FieldsPerRecord = -1
 
 	kayitlar, err := okuyucu.ReadAll()
-	fmt.Println("Toplam satır:", len(kayitlar))
+	// fmt.Println("Toplam satır:", len(kayitlar))
 
-	for i := 0; i < 5 && i < len(kayitlar); i++ {
-		fmt.Printf("SATIR %d: %#v\n", i, kayitlar[i])
-	}
+	// for i := 0; i < 5 && i < len(kayitlar); i++ {
+	// 	fmt.Printf("SATIR %d: %#v\n", i, kayitlar[i])
+	// }
 	if err != nil {
 		return err
 	}
@@ -66,7 +65,7 @@ func Yukle(dosyaYolu string) error {
 	// 	}
 	// }
 
-	fmt.Println("Toplam OUI:", len(OuiHaritasi))
+	// fmt.Println("Toplam OUI:", len(OuiHaritasi))
 	return nil
 }
 

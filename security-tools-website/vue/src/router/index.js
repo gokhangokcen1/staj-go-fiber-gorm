@@ -4,6 +4,7 @@ import SubnettingPage from '../pages/SubnettingPage.vue'
 import PortCheckerPage from '../pages/PortCheckerPage.vue'
 import IPScannerPage from '../pages/IPScannerPage.vue'
 import SSLCheckPage from '@/pages/SSLCheckPage.vue'
+import CapturePage from '@/pages/CapturePage.vue'
 
 
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
   { path: '/portchecker', component: PortCheckerPage },
   { path: '/ipscanner', component: IPScannerPage},
   { path: '/sslcheck', component: SSLCheckPage},
+  { path: '/wirehamsi', component: CapturePage },
   
 ]
 

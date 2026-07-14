@@ -22,7 +22,6 @@ import (
 	"golang.org/x/crypto/ocsp"
 )
 
-// Girdi olarak gelen URL'yi temizler (https://, http://, ve sonundaki / işaretlerini atar)
 func normalizeWebsite(input string) string {
 	input = strings.TrimSpace(input)
 	input = strings.TrimPrefix(input, "https://")
@@ -43,13 +42,12 @@ func CheckSSL(rawWebsite string) (*models.SSLReport, error) {
 		ServerName:         website,
 	})
 	if err != nil {
-		return nil, err // fmt.Printf kaldırıldı, hatayı direkt döndürüyoruz
+		return nil, err
 	}
 	defer conn.Close()
 
 	connState := conn.ConnectionState()
 
-	// GÜVENLİK KONTROLÜ: Sunucu hiç sertifika yollamadıysa hata dön
 	if len(connState.PeerCertificates) == 0 {
 		return nil, errors.New("sunucu herhangi bir sertifika gondermedi")
 	}
@@ -92,7 +90,6 @@ func FillGeneralInformation(gi *models.GeneralInformation, cert *x509.Certificat
 		Roots:         roots,
 	}
 
-	// else blokları kaldırılarak sadeleştirildi
 	_, errVerify := cert.Verify(opts)
 	gi.VendorSigned = (errVerify == nil)
 

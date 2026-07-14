@@ -5,18 +5,18 @@ type SslCheckRequest struct {
 	Port    int    `json:"port"`
 }
 
-// ---- General Information bölümü (tek nesne, sertifika başına değil) ----
+// ---- General Information ----
 type GeneralInformation struct {
-	ResolvesTo       string // google.com
-	ExpirationDate   string // Sep 14, 2026
-	VendorSigned     bool   // Yes
-	HostnameMatches  bool   // Doesn't match
-	KeyLength        int    // 256
-	ServerType       string // NA
-	RevocationStatus string // "Good", "Revoked", "Unknown", "NA"
+	ResolvesTo       string
+	ExpirationDate   string
+	VendorSigned     bool
+	HostnameMatches  bool
+	KeyLength        int
+	ServerType       string
+	RevocationStatus string
 }
 
-// ---- Issued For bölümü (tek nesne - sadece LEAF sertifikanın Subject'i) ----
+// ---- Issued For bölümü ----
 type IssuedFor struct {
 	CommonName       string
 	SAN              []string
@@ -28,7 +28,7 @@ type IssuedFor struct {
 	Address          string
 }
 
-// ---- Issued By bölümü (tek nesne - sadece LEAF sertifikanın Issuer'ı) ----
+// ---- Issued By bölümü ----
 type IssuedBy struct {
 	CommonName       string
 	Organization     string
@@ -38,7 +38,7 @@ type IssuedBy struct {
 	Locality         string
 }
 
-// ---- Chain Details + Advanced bölümü (BİRDEN FAZLA - zincirdeki her sertifika için bir tane) ----
+// ---- Chain Details + Advanced ----
 type ChainCert struct {
 	Issuer             string
 	CommonName         string
@@ -56,29 +56,9 @@ type ChainDetails struct {
 	Certs []ChainCert
 }
 
-// ---- Hepsini birleştiren üst rapor ----
 type SSLReport struct {
 	General GeneralInformation
 	For     IssuedFor
 	By      IssuedBy
 	Chain   ChainDetails
 }
-
-// type ChainCert struct {
-// 	Issuer                string
-// 	CommonName            string
-// 	Organization          string
-// 	Issued                string
-// 	Expires               string
-// 	SerialNumber          string
-// 	SignatureAlgorithm    string
-// 	FingerprintSHA1       string
-// 	FingerprintMD5        string
-// 	IsCA                  bool
-// 	KeyUsage              []string
-// 	ExtKeyUsage           []string
-// 	CRLDistributionPoints []string
-// 	OCSPServer            []string
-// 	IssuingCertificateURL []string
-//	PEM                   string
-// }
