@@ -3,7 +3,7 @@ import CrafterForm from '../components/CrafterForm.vue'
 </script>
 
 <template>
-  <div class="sayfa-taslak">
+  <div class="page-card">
     <CrafterForm />
   </div>
 </template>

@@ -3,14 +3,14 @@ import IPScannerForm from '../components/IPScannerForm.vue'
 </script>
 
 <template>
-  <div class="sayfa">
+  <div class="page-card">
     <IPScannerForm />
   </div>
 </template>
 
 <style scoped>
-.sayfa {
-  max-width: 20%;
-  margin: 40px auto;
+.page-card {
+  max-width: 1100px;
+  margin: 24px auto;
 }
 </style>

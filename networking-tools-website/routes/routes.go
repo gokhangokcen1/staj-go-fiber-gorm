@@ -36,6 +36,7 @@ func SetupRoutes(app *fiber.App) {
 	app.Post("/api/capture/start", handlers.StartCaptureHandler)
 	app.Post("/api/capture/stop", handlers.StopCaptureHandler)
 
-	api.Get("/dnschecker", handlers.CheckDNSHandler) // düzeltildi: Post → Get, path'ten "/api" kaldırıldı
-	api.Get("/dnschecker/full", handlers.GetFullRecordsHandler)
+	api.Post("/dnscheck", handlers.CheckDNSHandler)
+	api.Post("/whois", handlers.WhoisLookupHandler)
+
 }

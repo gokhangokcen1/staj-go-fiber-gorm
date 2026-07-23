@@ -7,6 +7,7 @@ import SSLCheckPage from '@/pages/SSLCheckPage.vue'
 import CapturePage from '@/pages/CapturePage.vue'
 import CrafterPage from '@/pages/CrafterPage.vue'
 import DnsCheckerPage from '../pages/DnsCheckerPage.vue'
+import WhoisPage from '../pages/WhoisPage.vue'
 
 
 const routes = [
@@ -18,6 +19,7 @@ const routes = [
   { path: '/wirehamsi', component: CapturePage },
   { path: '/packet-sender', component: CrafterPage },
   { path: '/dnschecker', component: DnsCheckerPage },
+  { path: '/whois', component: WhoisPage },
 ]
 
 const router = createRouter({

@@ -15,32 +15,6 @@ type HostSonuc struct {
 	Uretici string `json:"uretici"`
 }
 
-// hostTara, TEK bir IP icin ping+arp+oui zincirini calistirir.
-// func hostTara(ip string, sonucChannel chan HostSonuc, wg *sync.WaitGroup) {
-// 	defer wg.Done()
-
-// 	sonuc := HostSonuc{IP: ip}
-
-// 	ayakta := PingAt(ip)
-// 	sonuc.Ayakta = ayakta
-
-// 	if ayakta {
-// 		mac := MacAdresiBul(ip)
-// 		sonuc.Mac = mac
-// 		sonuc.Uretici = oui.UreticiBul(mac)
-// 		if mac == "" {
-// 			mac := myMAC()
-// 			sonuc.Mac = mac
-// 			sonuc.Uretici = oui.UreticiBul(mac)
-// 		}
-// 	} else {
-// 		sonuc.Mac = ""
-// 		sonuc.Uretici = ""
-// 	}
-
-// 	sonucChannel <- sonuc
-// }
-
 func hostTara(ip string, sonucChannel chan HostSonuc, wg *sync.WaitGroup) {
 	defer wg.Done()
 
@@ -50,7 +24,7 @@ func hostTara(ip string, sonucChannel chan HostSonuc, wg *sync.WaitGroup) {
 
 	if ip == myIP() {
 		mac = myMAC()
-		mac = strings.ReplaceAll(mac, "-", ":") //sil
+		mac = strings.ReplaceAll(mac, "-", ":")
 	}
 
 	ayakta := PingAt(ip)
@@ -63,7 +37,7 @@ func hostTara(ip string, sonucChannel chan HostSonuc, wg *sync.WaitGroup) {
 	if ayakta {
 		sonuc.Mac = mac
 		sonuc.Uretici = oui.UreticiBul(mac)
-		sonuc.Mac = strings.ReplaceAll(mac, "-", ":") //sil
+		sonuc.Mac = strings.ReplaceAll(mac, "-", ":")
 	}
 
 	sonucChannel <- sonuc

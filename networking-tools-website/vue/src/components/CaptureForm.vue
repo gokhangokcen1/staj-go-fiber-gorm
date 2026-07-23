@@ -17,11 +17,6 @@ const showOther = ref(true)
 
 let socket = null
 
-// DÜZELTME: showICMP eksikti, ReferenceError veriyordu.
-// Ayrıca mantık: her protokol için "return" kullanıldığında ilk eşleşen
-// dalın hemen çıkması yeterli — switch/case gibi davranıyor, bu doğru.
-// Sadece hiçbirine uymayan (gerçekten "diğer" olan, örn. IPv6/DNS henüz
-// parse edilmemiş şeyler) showOther'a düşüyor.
 const filtrelenmisPaketler = computed(() => {
   return paketler.value.filter((p) => {
     if (p.protocol === 'TCP') return showTCP.value
@@ -90,9 +85,6 @@ function temizle() {
   secilenIndex.value = null
 }
 
-// ICMP type/code'u okunabilir hale getiren yardımcı fonksiyon.
-// TypeCode aslında type ve code'un birleşimi (üst byte type, alt byte code) —
-// gopacket'in ICMPv4.TypeCode alanı böyle geliyor.
 function icmpTypeAdi(typeCode) {
   const type = (typeCode >> 8) & 0xff
   if (type === 8) return 'Echo Request (ping)'

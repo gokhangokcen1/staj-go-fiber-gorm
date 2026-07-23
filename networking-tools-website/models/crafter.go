@@ -1,6 +1,5 @@
 package models
 
-// PacketCraftRequest kullanıcının arayüzden gönderdiği ham paket parametreleri
 type PacketCraftRequest struct {
 	Protocol string   `json:"protocol"` // "TCP" veya "UDP"
 	SrcMAC   string   `json:"srcMac"`
@@ -13,7 +12,6 @@ type PacketCraftRequest struct {
 	TCPFlags []string `json:"tcpFlags"` // ["SYN", "ACK", "PSH", vs.]
 }
 
-// PacketCraftResponse işlem sonucunu döneceğimiz yapı
 type PacketCraftResponse struct {
 	Success bool   `json:"success"`
 	Message string `json:"message"`

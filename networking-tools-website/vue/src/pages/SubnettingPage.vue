@@ -3,14 +3,14 @@ import SubnetForm from '../components/SubnetForm.vue'
 </script>
 
 <template>
-  <div class="sayfa">
+  <div class="page-card">
     <SubnetForm />
   </div>
 </template>
 
 <style scoped>
-.sayfa {
-  max-width: 20%;
-  margin: 40px auto;
+.page-card {
+  max-width: 980px;
+  margin: 24px auto;
 }
 </style>

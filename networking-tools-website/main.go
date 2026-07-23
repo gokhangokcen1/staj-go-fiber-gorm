@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
+	"strings"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/cors"
@@ -18,6 +20,12 @@ func main() {
 	log.Printf("OUI veritabani yuklendi: %d kayit\n", len(oui.OuiHaritasi))
 	fmt.Println("Toplam kayıt:", len(oui.OuiHaritasi))
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3001"
+	}
+	listenAddr := ":" + port
+
 	app := fiber.New()
 
 	app.Use(cors.New())
@@ -30,5 +38,11 @@ func main() {
 		})
 	})
 
-	log.Fatal(app.Listen(":3001"))
+	log.Printf("Sunucu %s adresinde başlatılıyor...\n", listenAddr)
+	if err := app.Listen(listenAddr); err != nil {
+		if strings.Contains(err.Error(), "address already in use") {
+			log.Fatalf("Port %s zaten kullanımda. Bu portu serbest bırakın veya PORT değişkenini ayarlayarak farklı bir port kullanın. Örnek: $env:PORT='3002'; go run main.go", port)
+		}
+		log.Fatal(err)
+	}
 }

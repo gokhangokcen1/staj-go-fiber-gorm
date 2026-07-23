@@ -5,7 +5,6 @@ type SslCheckRequest struct {
 	Port    int    `json:"port"`
 }
 
-// ---- General Information ----
 type GeneralInformation struct {
 	ResolvesTo       string
 	ExpirationDate   string
@@ -16,7 +15,6 @@ type GeneralInformation struct {
 	RevocationStatus string
 }
 
-// ---- Issued For bölümü ----
 type IssuedFor struct {
 	CommonName       string
 	SAN              []string
@@ -28,7 +26,6 @@ type IssuedFor struct {
 	Address          string
 }
 
-// ---- Issued By bölümü ----
 type IssuedBy struct {
 	CommonName       string
 	Organization     string
@@ -38,7 +35,6 @@ type IssuedBy struct {
 	Locality         string
 }
 
-// ---- Chain Details + Advanced ----
 type ChainCert struct {
 	Issuer             string
 	CommonName         string

@@ -3,7 +3,7 @@ import PortCheckerForm from '../components/PortCheckerForm.vue'
 </script>
 
 <template>
-  <div class="sayfa">
+  <div class="page-card">
     <PortCheckerForm />
   </div>
 </template>

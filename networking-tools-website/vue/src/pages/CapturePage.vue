@@ -3,7 +3,7 @@ import CaptureForm from '../components/CaptureForm.vue'
 </script>
 
 <template>
-  <div class="sayfa">
+  <div class="page-card">
     <CaptureForm />
   </div>
 </template>

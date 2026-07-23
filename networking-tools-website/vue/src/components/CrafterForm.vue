@@ -9,9 +9,8 @@ const kaynakIp = ref('192.168.1.103')
 const hedefIp = ref('192.168.1.103')
 const kaynakPort = ref(54321)
 const hedefPort = ref(54322)
-const payload = ref('') // Payload alanı boş başlıyor
+const payload = ref('')
 
-// TCP Flags
 const flagSyn = ref(true)
 const flagAck = ref(true)
 const flagPsh = ref(true)
@@ -69,7 +68,6 @@ async function paketGonder() {
       <h1>Paket Yollama</h1>
     </div>
 
-    <!-- Hata / Başarı Bildirim Panelleri -->
     <div class="konsol-mesaj hata" v-if="hataMesaji">
       <span class="konsol-tag">[HATA]</span> {{ hataMesaji }}
     </div>
@@ -78,7 +76,6 @@ async function paketGonder() {
     </div>
 
     <div class="panel-layout">
-      <!-- SOL PANEL: IP / PORT / MAC -->
       <div class="kontrol-paneli">
         <h3 class="panel-baslik">Ağ & Katman Yapılandırması</h3>
         
@@ -128,12 +125,10 @@ async function paketGonder() {
         </div>
       </div>
 
-      <!-- SAĞ PANEL: TCP FLAGS / PAYLOAD -->
       <div class="kontrol-paneli flex-dikey">
         <div>
           <h3 class="panel-baslik">Veri ve Bayrak Yapılandırması</h3>
 
-          <!-- TCP Flags Seçenekleri (Sadece TCP Aktifken Gösterilir) -->
           <div class="input-alani" v-if="protokol === 'TCP'">
             <label>TCP Bayrakları (Flags)</label>
             <div class="flags-izgara">

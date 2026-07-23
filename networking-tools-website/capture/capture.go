@@ -42,7 +42,6 @@ func StartCapture(deviceName string) (chan models.PacketInfo, context.CancelFunc
 				if !matched {
 					continue
 				}
-				// info := parsePacket(packet)
 				select {
 				case packetChan <- info:
 				case <-ctx.Done():

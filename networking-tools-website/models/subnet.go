@@ -1,12 +1,10 @@
 package models
 
-// SubnetRequest, kullanicidan (Vue formundan) gelen istegi temsil eder.
 type SubnetRequest struct {
 	IP   string `json:"ip"`
 	CIDR int    `json:"cidr"`
 }
 
-// SubnetResponse, hesaplama sonucunu istemciye donen yapidir.
 type SubnetResponse struct {
 	Adres              string  `json:"adres"`
 	NetworkMask        string  `json:"networkMask"`
