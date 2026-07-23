@@ -1,8 +1,19 @@
 # Projects: 
-- CRUD Student Management System (GO Fiber + GORM + PostgreSQL + Vue.js)
-- Networking tools
-  - Subnet Calculator
-  - Port Checker
-  - SSL Checker
-  - Packet Sniffer & Analyzer
-  - DNS Checker
+- **CRUD Student Management System** (GO Fiber + GORM + PostgreSQL + Vue.js)
+- **Networking tools**
+  - **Subnet Calculator**
+    - IP bloklarını ve kullanılabilir adres aralıklarını hesaplar.
+  - **Port Checker**
+    - Tek bir hedef portunun erişilebilirliğini kontrol eder.
+  - **IP Scanner**
+    - Yerel ağdaki aktif cihazları hızlıca keşfedin.
+  - **SSL Checker**
+    - Sertifika zinciri ve güvenlik ayrıntılarını getirir.
+  - **Packet Sniffer & Analyzer**
+    - Ağ trafiğini canlı takip edip filtreler.
+  - **Packet Sender**
+    - Özel TCP ve UDP paketlerini oluşturup gönderir.
+  - **DNS Checker**
+    - DNS kayıtlarını ve A kaydı konumlarını gösterir.
+  - **Whois Checker**
+    - Alan adı kayıt, kayıt firması ve iletişim bilgilerini gösterir.
